@@ -1,6 +1,16 @@
-import cv2 as cv
+from kivy.app import App
+from kivy.uix.boxlayout import BoxLayout
 
-sla = cv.imread('20230507_113637.jpg')
-cv.imshow('sla', sla)
 
-cv.waitKey(0)
+class Tela(BoxLayout):
+    lbl_default_size = '16pt'
+
+
+class MyApp(App):
+    def build(self):
+        self.title = "MyBuyList"
+        return Tela()
+
+
+if __name__ == "__main__":
+    MyApp().run()

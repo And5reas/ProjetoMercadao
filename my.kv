@@ -1,0 +1,125 @@
+<Label>:
+    font_name: "Comic"
+
+<RoundedButton@Button>:
+    background_color: 0,0,0,0  # the last zero is the critical on, make invisible
+    canvas.before:
+        Color:
+            rgba: (.4,.4,.4,.5) if self.state=='normal' else (0,.7,.7,1)  # visual feedback of press
+        RoundedRectangle:
+            pos: self.pos
+            size: self.size
+            radius: [50,]
+        Color:
+            rgba: (.7,.7,0,1) if self.state=='normal' else (0,.7,.7,1)  # visual feedback of press
+        RoundedRectangle:
+            pos: self.pos[0] + 5, self.pos[1] + 5
+            size: self.size[0] - 10, self.size[1] - 10
+            radius: [50,]
+
+<Button>:
+    background_normal: ""
+    background_color: 0,0,0,0
+
+<Tela>:
+    orientation: "vertical"
+    
+    # Top
+    BoxLayout:
+        orientation: "vertical"
+        size_hint: 1, 0.3
+
+        # Top - Top
+        BoxLayout:
+            Button:
+                size_hint: 0.2, 1
+            Label:
+                text: "MyBuyList"
+                font_size: root.lbl_default_size
+            Button:
+                size_hint: 0.2, 1
+
+        # Top - Middle
+        BoxLayout:
+            size_hint: 1, 0.75
+            BoxLayout:
+                Label:
+                Button:
+                    text: "<"
+                    font_size: "22pt"
+
+            Label:
+                text: "May, XXXX"
+                font_size: root.lbl_default_size
+            BoxLayout:
+                Button:
+                    text: ">"
+                    font_size: "22pt"
+
+                Button:
+
+        # Top - bottom
+        GridLayout:
+            rows: 2
+            cols: 2
+            
+            Label:
+                text: "Quantidade de itens"
+                font_size: '14pt'
+            Label:
+                text: "Total"
+                font_size: '14pt'
+                
+            Label:
+                text: "0"
+                font_size: '14pt'
+            Label:
+                text: "R$ 0.0"
+                font_size: '14pt'
+
+    # Middle
+    PageLayout:
+        id: page_middle
+        border: 0
+
+        FloatLayout:
+            pos: page_middle.pos
+            size: page_middle.size
+                
+            ScrollView:
+                pos: page_middle.pos
+                size: page_middle.size
+                    
+                BoxLayout:
+                    Label:
+                        text: "pag 1"
+
+            RoundedButton:
+                size_hint: None, None
+                size: 70, 70
+                pos: page_middle.pos[0], page_middle.pos[1] + 10
+                pos_hint: {'right': 0.98}
+                text: "+"
+                font_size: "40pt"
+                text_size: 23, 63
+                
+
+    # Bottom
+    BoxLayout:
+        orientation: "horizontal"
+        size_hint: 1, 0.13
+        Button:
+            text: "Button"
+
+        Button:
+            text: "Button1"
+
+        Button:
+            text: "Button2"
+
+        Button:
+            text: "Button3"
+
+
+        
+
